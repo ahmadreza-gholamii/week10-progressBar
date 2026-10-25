@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Stepper</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script src="./js/app.js" defer></script>
+  </head>
+  <body>
+    <main class="progress-card">
+      <header class="progress-header">
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+          <span aria-hidden="true">◐</span>
+        </button>
+        <div>
+          <h1>Progress</h1>
+          <p>Follow the steps to complete the form</p>
+        </div>
+        <div class="timer" id="timer" aria-live="off">
+          <span class="timer-value" id="timerValue">01:00</span>
+          <span class="timer-label">time left</span>
+        </div>
+      </header>
+      <section class="progress-container">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <button
+              class="step-circle"
+              data-step="0"
+              aria-label="Go to Start step"
+            >
+              1
+            </button>
+            <h2>Start</h2>
+            <p>First step of your project</p>
+          </div>
+          <div class="step">
+            <button
+              class="step-circle"
+              data-step="1"
+              aria-label="Go to Planning step"
+            >
+              2
+            </button>
+            <h2>Planning</h2>
+            <p>Details of implementation</p>
+          </div>
+          <div class="step">
+            <button
+              class="step-circle"
+              data-step="2"
+              aria-label="Go to Execution step"
+            >
+              3
+            </button>
+            <h2>Execution</h2>
+            <p>Task management</p>
+          </div>
+          <div class="step">
+            <button
+              class="step-circle"
+              data-step="3"
+              aria-label="Go to Completion step"
+            >
+              4
+            </button>
+            <h2>Completion</h2>
+            <p>Final delivery</p>
+          </div>
+        </div>
+      </section>
+      <footer class="progress-footer">
+        <button id="prevBtn" class="nav-button" disabled>
+          <span aria-hidden="true">←</span> Previous
+        </button>
+        <div class="step-counter">
+          <div class="status-indicator">
+            <span class="status-ping"></span>
+            <span class="status-dot"></span>
+          </div>
+          <p id="stepCounter">Step 1 of 4</p>
+        </div>
+        <button id="nextBtn" class="nav-button">
+          Next <span aria-hidden="true">→</span>
+        </button>
+      </footer>
+    </main>
+    <div
+      id="timeUpModal"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="timeUpTitle"
+    >
+      <div class="modal-content">
+        <h2 id="timeUpTitle">Time's Up!</h2>
+        <p>Your 1-minute time limit has expired.</p>
+        <button id="restartBtn" class="nav-button" type="button">
+          Restart
+        </button>
+      </div>
+    </div>
+    <div
+      class="modal hidden"
+      id="successModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-content">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <h2 id="modalTitle">Project Completed Successfully</h2>
+        <p>You've completed all four steps.</p>
+        <button id="closeModalBtn" class="nav-button">Start Again</button>
+      </div>
+    </div>
+  </body>
+</html>
